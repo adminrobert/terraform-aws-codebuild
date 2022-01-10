@@ -143,6 +143,16 @@ variable "secondary_sources" {
   description = "(Optional) secondary source for the codebuild project in addition to the primary location"
 }
 
+variable "secondary_source_version" {
+  type = list(object(
+  {
+    source_identifier   = string
+    source_version      = string
+  }))
+  default     = []
+  description = "(Optional) secondary source versions, source_identifier must match to an instance within secondary_sources.source_identifier"
+}
+
 variable "source_type" {
   type        = string
   default     = "CODEPIPELINE"
